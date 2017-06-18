@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<script>
+
+// Register event listeners
+safari.application.addEventListener("command", performCommand, false);
+safari.application.addEventListener("validate", validateCommand, false);
+
+function urlencode(str) {
+	// from http://phpjs.org/functions/urlencode:573
+	str = (str+'').toString();
+	return encodeURIComponent(str).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/%20/g, '+');
+}
+
+function performCommand(event) {
+
+	if (event.command !== "bibtex")
+		return;
+		
+	console.log("clicked");
+
+	var currentURL = event.target.browserWindow.activeTab.url;
+	var currentTitle = event.target.browserWindow.activeTab.title;
+	if (currentURL) {
+        copyToClipboard(currentURL, currentTitle)
+	}
+}
+ 
+function copyToClipboard(currentURL, currentTitle) {
+
+
+    type = "url"
+    citekey = Math.random().toString(36).substring(7);
+    date = new Date().toLocaleString('en-US');
+    
+
+    text = "@" + type + "{" + citekey + ",\n "
+    text += "Title = {" + currentTitle + "},"
+    text += "Howpublished = {\\url{" + currentURL + "}},\n"
+    text += "Lastchecked = {" + date + "},"
+    text += "Note = {(Accessed on " + date + ")}"
+    text += "}"
+    
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+}
+ 
+function validateCommand(event) {
+
+	if (event.command !== "bibtex")
+		return;
+
+	// Disable the button if there is no URL loaded in the tab.
+	event.target.disabled = !event.target.browserWindow.activeTab.url;	
+
+}
+
+</script>
