@@ -34,10 +34,10 @@ function copyToClipboard(currentURL, currentTitle) {
     
 
     text = "@" + type + "{" + citekey + ",\n "
-    text += "Title = {" + currentTitle + "},"
+    text += "Title = {" + currentTitle + "},\n"
     text += "Howpublished = {\\url{" + currentURL + "}},\n"
-    text += "Lastchecked = {" + date + "},"
-    text += "Note = {(Accessed on " + date + ")}"
+    text += "Lastchecked = {" + date + "},\n"
+    text += "Note = {(Accessed on " + date + ")}\n"
     text += "}"
     
     window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
