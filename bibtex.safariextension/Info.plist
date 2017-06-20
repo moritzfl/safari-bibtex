@@ -36,14 +36,14 @@
 				<key>Palette Label</key>
 				<string>BibTeX</string>
 				<key>Tool Tip</key>
-				<string>Copies bibtex entry as String</string>
+				<string>Copies bibtex entry as text</string>
 			</dict>
 		</array>
 	</dict>
 	<key>Description</key>
 	<string>Copy current website as bibtex-entry.</string>
 	<key>DeveloperIdentifier</key>
-	<string>0000000000</string>
+	<string>9S2J62PDB9</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
