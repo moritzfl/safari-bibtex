@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.2</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.0.2</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -36,12 +36,12 @@
 				<key>Palette Label</key>
 				<string>BibTeX</string>
 				<key>Tool Tip</key>
-				<string>Copies bibtex entry as text</string>
+				<string>Generate BibTeX-entry for current website</string>
 			</dict>
 		</array>
 	</dict>
 	<key>Description</key>
-	<string>Copy current website as bibtex-entry.</string>
+	<string>Generate bibtex-entries for websites</string>
 	<key>DeveloperIdentifier</key>
 	<string>9S2J62PDB9</string>
 	<key>ExtensionInfoDictionaryVersion</key>
@@ -57,6 +57,6 @@
 		</dict>
 	</dict>
 	<key>Website</key>
-	<string>http://www.moritzf.de</string>
+	<string>http://www.moritzf.de/projects/tool-collection</string>
 </dict>
 </plist>
