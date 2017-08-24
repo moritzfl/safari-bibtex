@@ -3,7 +3,7 @@ safari browser extension to help with citing websites in bibtex.
 
 [download the extension here](https://raw.githubusercontent.com/moritzfl/safari-bibtex/master/bibtex.safariextz)
 
-![Screenshot](http://moritzf.de/files/projects/safari-bibtex.png)
+![Screenshot](https://raw.githubusercontent.com/moritzfl/safari-bibtex/master/submission-ressources/screenshot-submission.png)
 
 Citation example:
 
