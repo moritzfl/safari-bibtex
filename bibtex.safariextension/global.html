@@ -25,16 +25,26 @@ function performCommand(event) {
 function copyToClipboard(currentURL, currentTitle) {
 
 
-    type = "url"
-    citekey = Math.random().toString(36).substring(7);
-    date = new Date().toLocaleString('en-US');
+    type = "misc"
+    shortTitle = currentTitle;
+    if (shortTitle.includes(" ")){
+    	shortTitle = shortTitle.substr(0, shortTitle.indexOf(" "));
+    }
+    if (shortTitle.length > 10){
+    	shortTitle = shortTitle.substring(0, 10);
+    }
     
+    citekey = shortTitle + "-" +  Math.random().toString(36).substring(10);
+    date = new Date();
+    months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    dateString = date.getDay() + "-" + months[date.getMonth()] + "-" + date.getFullYear();
+
 
     text = "@" + type + "{" + citekey + ",\n "
     text += "Title = {" + currentTitle + "},\n"
     text += "Howpublished = {\\url{" + currentURL + "}},\n"
-    text += "Lastchecked = {" + date + "},\n"
-    text += "Note = {(Accessed on " + date + ")}\n"
+    text += "Lastchecked = {" + dateString + "},\n"
+    text += "Note = {(Accessed on " + dateString + ")}\n"
     text += "}"
     
     window.prompt("Copy to clipboard: Ctrl+C, Enter \n", text);

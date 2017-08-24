@@ -8,10 +8,10 @@ safari browser extension to help with citing websites in bibtex.
 Citation example:
 
 ```
-@url{qvqkma,
-  Title = {wikipedia.de - Wikipedia, die freie Enzyklopädie},
-  Howpublished = {\url{https://wikipedia.de/}},
-  Lastchecked = {6/18/2017, 9:46:38 AM},
-  Note = {(Accessed on 6/18/2017, 9:46:38 AM)}
+@misc{Latex-5me,
+ Title = {Latex – Wikipedia},
+Howpublished = {\url{https://de.wikipedia.org/wiki/Latex}},
+Lastchecked = {4-August-2017},
+Note = {(Accessed on 4-August-2017)}
 }
 ```
