@@ -3,60 +3,63 @@
 
 // Thanks to the following source which was a great example for a simple safari-extension to learn from:
 // https://github.com/Hexor/Goo.gl-URL-Shortener-Safari-Extension
-	
+    
 // Register event listeners
 safari.application.addEventListener("command", performCommand, false);
 safari.application.addEventListener("validate", validateCommand, false);
 
 function performCommand(event) {
 
-	if (event.command !== "bibtex")
-		return;
-		
-	console.log("clicked");
+    if (event.command !== "bibtex")
+        return;
+        
+    console.log("clicked");
 
-	var currentURL = event.target.browserWindow.activeTab.url;
-	var currentTitle = event.target.browserWindow.activeTab.title;
-	if (currentURL) {
+    var currentURL = event.target.browserWindow.activeTab.url;
+    var currentTitle = event.target.browserWindow.activeTab.title;
+    if (currentURL) {
         copyToClipboard(currentURL, currentTitle)
-	}
+    }
 }
  
+// Copies the current website to clipboard as BibTeX entry
 function copyToClipboard(currentURL, currentTitle) {
-
 
     type = "misc"
     shortTitle = currentTitle;
     if (shortTitle.includes(" ")){
-    	shortTitle = shortTitle.substr(0, shortTitle.indexOf(" "));
+        shortTitle = shortTitle.substr(0, shortTitle.indexOf(" "));
     }
     if (shortTitle.length > 10){
-    	shortTitle = shortTitle.substring(0, 10);
+        shortTitle = shortTitle.substring(0, 10);
     }
     
     citekey = shortTitle + "-" +  Math.random().toString(36).substring(10);
     date = new Date();
-    months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-    dateString = date.getDay() + "-" + months[date.getMonth()] + "-" + date.getFullYear();
+    
+    // generate a string without the weekday 
+    // (eg. "Sun Jan 21 2018".substring(4) becomes "Jan 21 2018")
+    // Date.getMonth() and Date.getDay() has/had a weird bug in 2018 where 
+    // it always returned 0. Using .toDateString() works around this problem.
+    dateString = date.toDateString().substring(4);
 
-
-    text = "@" + type + "{" + citekey + ",\n "
-    text += "Title = {" + currentTitle + "},\n"
-    text += "Howpublished = {\\url{" + currentURL + "}},\n"
-    text += "Lastchecked = {" + dateString + "},\n"
-    text += "Note = {(Accessed on " + dateString + ")}\n"
+    text = "@" + type + "{" + citekey + ",\n"
+    text += "    Title = {" + currentTitle + "},\n"
+    text += "    Howpublished = {\\url{" + currentURL + "}},\n"
+    text += "    Lastchecked = {" + dateString + "},\n"
+    text += "    Note = {(Accessed on " + dateString + ")}\n"
     text += "}"
     
-    window.prompt("Copy to clipboard: Ctrl+C, Enter \n", text);
+    window.prompt("Copy to clipboard: Cmd+C, Enter \n", text);
 }
  
 function validateCommand(event) {
 
-	if (event.command !== "bibtex")
-		return;
+    if (event.command !== "bibtex")
+        return;
 
-	// Disable the button if there is no URL loaded in the tab.
-	event.target.disabled = !event.target.browserWindow.activeTab.url;	
+    // Disable the button if there is no URL loaded in the tab.
+    event.target.disabled = !event.target.browserWindow.activeTab.url;    
 
 }
 
