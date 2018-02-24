@@ -47,8 +47,8 @@ function copyToClipboard(currentURL, currentTitle) {
     text += "    Title = {" + currentTitle + "},\n"
     text += "    Howpublished = {\\url{" + currentURL + "}},\n"
     text += "    Lastchecked = {" + dateString + "},\n"
-    text += "    Note = {(Accessed on " + dateString + ")}\n"
-    text += "    Bdsk-Url-1 = " + currentURL + ")}\n"
+    text += "    Note = {(Accessed on " + dateString + ")},\n"
+    text += "    Bdsk-Url-1 = {" + currentURL + "}\n"
     text += "}"
     
     window.prompt("Copy to clipboard: Cmd+C, Enter \n", text);
