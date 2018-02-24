@@ -6,11 +6,12 @@ safari browser extension to help with citing websites in bibtex.
 Citation example:
 
 ```
-@misc{other-u6q,
+@misc{other-gnr,
     Title = {other projects - moritzf.de},
-    Howpublished = {\url{http://www.moritzf.de/projects/other_projects.html}},
-    Lastchecked = {Jan 21 2018},
-    Note = {(Accessed on Jan 21 2018)}
+    Howpublished = {\url{https://www.moritzf.de/projects/other_projects.html}},
+    Lastchecked = {Feb 24 2018},
+    Note = {(Accessed on Feb 24 2018)},
+    Bdsk-Url-1 = {https://www.moritzf.de/projects/other_projects.html}
 }
 ```
 
