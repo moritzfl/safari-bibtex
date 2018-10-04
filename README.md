@@ -1,6 +1,6 @@
 # safari-bibtex
 
-NOTE: Sadly, Apple changed their extension mechanisms in Safari 12 so that plugins now require to be written as an app. Therefore I will not be able to bring safari-bibtex to Safari 12 as this was meant as a personal low-effort project to assist during research.
+NOTE: Sadly, Apple changed their extension mechanisms in Safari 12 so that plugins now require to be written as an app. Therefore, I will not be able to bring safari-bibtex to Safari 12 as this was meant as a personal low-effort project to assist during research. For more details: [link](https://www.howtogeek.com/fyi/macos-mojave-will-break-a-bunch-of-safari-extensions/).
 
 safari browser extension to help with citing websites in bibtex.
 
